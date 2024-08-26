@@ -12,11 +12,6 @@ cask "aerospace@0.12.0" do
   # https://github.com/Homebrew/homebrew-cask/issues/12822
   conflicts_with formula: "aerospace-cli"
 
-  postflight do
-    system "xattr -d com.apple.quarantine #{staged_path}/AeroSpace-v#{version}/bin/aerospace"
-    system "xattr -d com.apple.quarantine #{appdir}/AeroSpace.app"
-  end
-
   app "AeroSpace-v#{version}/AeroSpace.app"
   binary "AeroSpace-v#{version}/bin/aerospace"
 
