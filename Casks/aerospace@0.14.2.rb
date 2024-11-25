@@ -1,28 +1,23 @@
-cask "aerospace@0.14.2" do
-  version "0.14.2-Beta"
-  sha256 "c4e20fe75905413cbd45b086428e6024633397f5a166527e942b4c39a3029c1f"
+cask 'aerospace@0.14.2' do
+  version '0.14.2-Beta'
+  sha256 'c4e20fe75905413cbd45b086428e6024633397f5a166527e942b4c39a3029c1f'
 
   url "https://github.com/nikitabobko/AeroSpace/releases/download/v#{version}/AeroSpace-v#{version}.zip"
-  name "AeroSpace"
-  desc "AeroSpace is an i3-like tiling window manager for macOS"
-  homepage "https://github.com/nikitabobko/AeroSpace"
+  name 'AeroSpace'
+  desc 'AeroSpace is an i3-like tiling window manager for macOS'
+  homepage 'https://github.com/nikitabobko/AeroSpace'
 
-  depends_on macos: ">= :ventura" # macOS 13
-
-  postflight do
-    system "xattr -d com.apple.quarantine #{staged_path}/AeroSpace-v#{version}/bin/aerospace"
-    system "xattr -d com.apple.quarantine #{appdir}/AeroSpace.app"
-  end
+  depends_on macos: '>= :ventura' # macOS 13
 
   app "AeroSpace-v#{version}/AeroSpace.app"
   binary "AeroSpace-v#{version}/bin/aerospace"
 
   binary "AeroSpace-v#{version}/shell-completion/zsh/_aerospace",
-      target: "#{HOMEBREW_PREFIX}/share/zsh/site-functions/_aerospace"
+         target: "#{HOMEBREW_PREFIX}/share/zsh/site-functions/_aerospace"
   binary "AeroSpace-v#{version}/shell-completion/bash/aerospace",
-      target: "#{HOMEBREW_PREFIX}/etc/bash_completion.d/aerospace"
+         target: "#{HOMEBREW_PREFIX}/etc/bash_completion.d/aerospace"
   binary "AeroSpace-v#{version}/shell-completion/fish/aerospace.fish",
-      target: "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/aerospace.fish"
+         target: "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/aerospace.fish"
 
   manpage "AeroSpace-v#{version}/manpage/aerospace-balance-sizes.1"
   manpage "AeroSpace-v#{version}/manpage/aerospace-close-all-windows-but-current.1"
